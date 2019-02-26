@@ -1,0 +1,8 @@
+{
+    "id": "548490728863563777",
+    "token": "NTQ4NDkwNzI4ODYzNTYzNzc3.D1GJUQ.N7aRa3dKiilHSorV2yeM_cMr1JY",
+    "secret": "Gm2UEwqruLPsdP3c4h77Whm--PVbb91H",
+    "prefix": "+",
+    "site": "streampy.nl",
+    "activity": "{{site}} | {{prefix}}help"
+}

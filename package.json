@@ -1,0 +1,13 @@
+{
+  "name": "streampy_bot_v2.0",
+  "version": "1.0.0",
+  "description": "Streampy Bot v2.0.0",
+  "main": "bot.js",
+  "repository": "https://github.com/YoloGamer123415/streampy_bot-v2.0",
+  "author": "YoloGamer123415",
+  "license": "MIT",
+  "private": false,
+  "dependencies": {
+    "discord.js": "^11.4.2"
+  }
+}
