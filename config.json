@@ -1,8 +1,24 @@
 {
-    "id": "548490728863563777",
-    "token": "NTQ4NDkwNzI4ODYzNTYzNzc3.D1GJUQ.N7aRa3dKiilHSorV2yeM_cMr1JY",
-    "secret": "Gm2UEwqruLPsdP3c4h77Whm--PVbb91H",
-    "prefix": "+",
-    "site": "streampy.nl",
-    "activity": "{{site}} | {{prefix}}help"
+    "blacklisted_words": [
+        "[link]",
+        "[invite]",
+        "kut",
+        "cancer",
+        "kanker",
+        "tyfus",
+        "fuck",
+        "kut",
+        "aids",
+        "jezus"
+    ],
+    "settings": {
+        "allow_admin_role": true,
+        "warn_user": false,
+        "mute_user": false,
+        "max_warns": 5,
+        "time_muted": 2,
+        "prefix": "+",
+        "site": "streampy.nl",
+        "activity": "{{site}} | {{prefix}}help"
+    }
 }

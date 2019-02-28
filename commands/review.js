@@ -10,7 +10,7 @@ exports.run = (client, message, args) => {
                 color: 1409939,
                 fields: [],
                 footer: {
-                    text: `© Copyright Streampyhosting - ${new Date().getFullYear()}`
+                    text: `© Copyright Streampy Hosting - ${new Date().getFullYear()}`
                 }
             }
         }
@@ -25,7 +25,7 @@ exports.run = (client, message, args) => {
         })
 
         if (args[1]) {
-            var review = message.content.slice(config.prefix.length).trim().replace(`review`, '').replace(/[1-5] +/, '')
+            var review = message.content.slice(config.settings.prefix.length).trim().replace(`review`, '').replace(/[1-5] +/, '')
 
             if (review.length < 1000) {
                 msg.embed.fields.push({
@@ -40,7 +40,7 @@ exports.run = (client, message, args) => {
                         "description": `Your review is a bit to long (**${review.length}** characters), please reduce it to **1000** or less.`,
                         "color": 1409939,
                         "footer": {
-                            "text": `© Copyright Streampyhosting - ${new Date().getFullYear()}`
+                            "text": `© Copyright Streampy Hosting - ${new Date().getFullYear()}`
                         }
                     }
                 })
@@ -55,7 +55,7 @@ exports.run = (client, message, args) => {
                 "description": `Thanks **${message.author.username}** for your review, it has been send in the <#${message.guild.channels.find(channel => channel.name.toLowerCase().match(/review/)).id}> channel!`,
                 "color": 1409939,
                 "footer": {
-                    "text": `© Copyright Streampyhosting - ${new Date().getFullYear()}`
+                    "text": `© Copyright Streampy Hosting - ${new Date().getFullYear()}`
                 }
             }
         })
@@ -66,7 +66,7 @@ exports.run = (client, message, args) => {
                 "description": "Review usage: `+review <1-5> [review]`",
                 "color": 1409939,
                 "footer": {
-                    "text": `© Copyright Streampyhosting - ${new Date().getFullYear()}`
+                    "text": `© Copyright Streampy Hosting - ${new Date().getFullYear()}`
                 }
             }
         })

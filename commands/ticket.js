@@ -13,7 +13,7 @@ exports.run = (client, message, args, adminRole) => {
                     "description": "Something went wrong.",
                     "color": 1409939,
                     "footer": {
-                        "text": `© Copyright Streampyhosting - ${new Date().getFullYear()}`
+                        "text": `© Copyright Streampy Hosting - ${new Date().getFullYear()}`
                     }
                 }
             })
@@ -32,7 +32,7 @@ exports.run = (client, message, args, adminRole) => {
                 allow: 511040
             }, {
                 id: allowedAdminID,
-                allow: 8
+                allow: 2080898295
             }]).then(channel => {
                 //channel.setParent('527421636132208640')
                 channel.send({
@@ -46,14 +46,14 @@ exports.run = (client, message, args, adminRole) => {
                             inline: true
                         }, {
                             name: userHasRole? 'Vraag' : 'Question',
-                            value: args[0] ? message.content.slice(config.prefix.length).trim().replace('ticket', '').toString() : `*${userHasRole ? 'Geen vraag opgegeven...' : 'No question given...'}*`,
+                            value: args[0] ? message.content.slice(config.settings.prefix.length).trim().replace('ticket', '').toString() : `*${userHasRole ? 'Geen vraag opgegeven...' : 'No question given...'}*`,
                             inline: true
                         }, {
                             name: userHasRole ? 'Wachten' : 'Waiting',
                             value: userHasRole ? `Het kan zijn dat het even duurt voordat wij, de admins van **${message.guild.name}**, bij je komen.` : `It may be that it takes a little while until we, the admins of **${message.guild.name}**, get to you.`
                         }],
                         footer: {
-                            text: `© Copyright Streampyhosting - ${new Date().getFullYear()}`
+                            text: `© Copyright Streampy Hosting - ${new Date().getFullYear()}`
                         }
                     }
                 })
@@ -62,7 +62,7 @@ exports.run = (client, message, args, adminRole) => {
                         description: `The channel **<#${channel.id}>** has been created for you!`,
                         color: 1409939,
                         footer: {
-                            text: `© Copyright Streampyhosting - ${new Date().getFullYear()}`
+                            text: `© Copyright Streampy Hosting - ${new Date().getFullYear()}`
                         }
                     }
                 })
@@ -80,7 +80,7 @@ exports.run = (client, message, args, adminRole) => {
                         description: `Something went wrong while creating your private channeln`,
                         color: 1409939,
                         footer: {
-                            text: `© Copyright Streampyhosting - ${new Date().getFullYear()}`
+                            text: `© Copyright Streampy Hosting - ${new Date().getFullYear()}`
                         }
                     }
                 })

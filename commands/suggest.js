@@ -7,10 +7,10 @@ exports.run = (client, message, args) => {
         channel.send({
             "embed": {
                 "title": "Suggestion",
-                "description": `${message.content.replace(`${config.prefix}suggest`, '').trim()}`,
+                "description": `${message.content.replace(`${config.settings.prefix}suggest`, '').trim()}`,
                 "color": 1409939,
                 "footer": {
-                    "text": `© Copyright Streampyhosting - ${new Date().getFullYear()}`
+                    "text": `© Copyright Streampy Hosting - ${new Date().getFullYear()}`
                 },
                 "fields": [{
                     "name": "Suggested by:",
@@ -29,7 +29,7 @@ exports.run = (client, message, args) => {
                 "description": "Suggest usage: `+suggest <suggestion>`",
                 "color": 1409939,
                 "footer": {
-                    "text": `© Copyright Streampyhosting - ${new Date().getFullYear()}`
+                    "text": `© Copyright Streampy Hosting - ${new Date().getFullYear()}`
                 }
             }
         })

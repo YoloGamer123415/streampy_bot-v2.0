@@ -6,11 +6,11 @@ exports.run = (client, message, args) => {
     message.channel.send({
         embed: {
             title: 'Links',
-            description: `» [Our site](https://${config.site})\n» [Our panel](https://panel.${config.site})\n» [Our Discord](https://discord.gg/cTh9SZ2)\n» [Our YouTube](https://youtube.com/streampy)\n» [Our Twitter](https://twitter.com/StreampyH)\n» For questions: info@${config.site}`,
-            url: `https://${config.site}`,
+            description: `» [Our site](https://${config.settings.site})\n» [Our panel](https://panel.${config.settings.site})\n» [Our Discord](https://discord.gg/cTh9SZ2)\n» [Our YouTube](https://youtube.com/streampy)\n» [Our Twitter](https://twitter.com/StreampyH)\n» For questions: info@${config.settings.site}`,
+            url: `https://${config.settings.site}`,
             color: 1409939,
             footer: {
-                "text": `© Copyright Streampyhosting - ${new Date().getFullYear()}`
+                "text": `© Copyright Streampy Hosting - ${new Date().getFullYear()}`
             }
         }
     })
@@ -20,7 +20,7 @@ exports.help = {
     name: 'Links',
     description: 'Get a list of useful links.',
     command: 'link',
-    usage: '{{ prefix }}help',
+    usage: '{{ prefix }}link',
     params: null,
     isAdmin: false
 }

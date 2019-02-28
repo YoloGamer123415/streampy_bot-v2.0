@@ -12,7 +12,7 @@ exports.run = (client, message, args, adminRole) => {
                     "description": "Something went wrong.",
                     "color": 1409939,
                     "footer": {
-                        "text": `© Copyright Streampyhosting - ${new Date().getFullYear()}`
+                        "text": `© Copyright Streampy Hosting - ${new Date().getFullYear()}`
                     }
                 }
             })
@@ -23,7 +23,7 @@ exports.run = (client, message, args, adminRole) => {
                     "description": "These are all the commands you have access to:\n\n**<>** = required, *[]* = optional, | = or",
                     "color": 1409939,
                     "footer": {
-                        "text": `© Copyright Streampyhosting - ${new Date().getFullYear()}`
+                        "text": `© Copyright Streampy Hosting - ${new Date().getFullYear()}`
                     },
                     "fields": []
                 }
@@ -40,11 +40,11 @@ exports.run = (client, message, args, adminRole) => {
 
                     if (!content.isAdmin) {
                         var command = content.usage
-                            .replace(/{{ *prefix *}}/g, `${config.prefix}__`)
+                            .replace(/{{ *prefix *}}/g, `${config.settings.prefix}__`)
                             .replace(/ +/, '__ ')
-                            .replace(/{{ *site *}}/g, config.site)
+                            .replace(/{{ *site *}}/g, config.settings.site)
                             .replace(/{{ *name *}}/g, client.user.username)
-                            .replace(/{{ *sname *}}/g, message.guild.name)
+                            .replace(/{{ *s(erver)?name *}}/g, message.guild.name)
                             .replace('[', '*[')
                             .replace(']', ']*')
                             .replace('<', '**<')
@@ -57,10 +57,10 @@ exports.run = (client, message, args, adminRole) => {
                         var temp = {
                             name: content.name,
                             value: `${content.description
-                                .replace(/{{ *prefix *}}/g, config.prefix)
-                                .replace(/{{ *site *}}/g, config.site)
+                                .replace(/{{ *prefix *}}/g, config.settings.prefix)
+                                .replace(/{{ *site *}}/g, config.settings.site)
                                 .replace(/{{ *name *}}/g, client.user.username)
-                                .replace(/{{ *sname *}}/g, message.guild.name)}\n\n${command}\n${t}`
+                                .replace(/{{ *s(erver)?name *}}/g, message.guild.name)}\n\n${command}\n${t}`
                         }
 
                         msg.embed.fields.push(temp)
@@ -80,11 +80,11 @@ exports.run = (client, message, args, adminRole) => {
 
                         if (content.isAdmin) {
                             var command = content.usage
-                                .replace(/{{ *prefix *}}/g, `${config.prefix}__`)
+                                .replace(/{{ *prefix *}}/g, `${config.settings.prefix}__`)
                                 .replace(/ +/, '__ ')
-                                .replace(/{{ *site *}}/g, config.site)
+                                .replace(/{{ *site *}}/g, config.settings.site)
                                 .replace(/{{ *name *}}/g, client.user.username)
-                                .replace(/{{ *sname *}}/g, message.guild.name)
+                                .replace(/{{ *s(erver)?name *}}/g, message.guild.name)
                                 .replace('[', '*[')
                                 .replace(']', ']*')
                                 .replace('<', '**<')
@@ -97,10 +97,10 @@ exports.run = (client, message, args, adminRole) => {
                             var temp = {
                                 name: content.name,
                                 value: `${content.description
-                                    .replace(/{{ *prefix *}}/g, config.prefix)
-                                    .replace(/{{ *site *}}/g, config.site)
+                                    .replace(/{{ *prefix *}}/g, config.settings.prefix)
+                                    .replace(/{{ *site *}}/g, config.settings.site)
                                     .replace(/{{ *name *}}/g, client.user.username)
-                                    .replace(/{{ *sname *}}/g, message.guild.name)}\n\n${command}\n${t}`
+                                    .replace(/{{ *s(erver)?name *}}/g, message.guild.name)}\n\n${command}\n${t}`
                             }
 
                             msg.embed.fields.push(temp)
@@ -125,10 +125,10 @@ exports.run = (client, message, args, adminRole) => {
                             content.command.toLowerCase().match(new RegExp(`${args[0].toLowerCase()}`))
                         ) {
                             var command = content.usage
-                                .replace(/{{ *prefix *}}/g, `${config.prefix}__`).replace(/ +/, '__ ')
-                                .replace(/{{ *site *}}/g, config.site)
+                                .replace(/{{ *prefix *}}/g, `${config.settings.prefix}__`).replace(/ +/, '__ ')
+                                .replace(/{{ *site *}}/g, config.settings.site)
                                 .replace(/{{ *name *}}/g, client.user.username)
-                                .replace(/{{ *sname *}}/g, message.guild.name)
+                                .replace(/{{ *s(erver)?name *}}/g, message.guild.name)
                                 .replace('[', '*[')
                                 .replace(']', ']*')
                                 .replace('<', '**<')
@@ -156,10 +156,10 @@ exports.run = (client, message, args, adminRole) => {
                             var temp = {
                                 name: '---=={ }==---',
                                 value: `**${content.name}**\n${content.description
-                                    .replace(/{{ *prefix *}}/g, config.prefix)
-                                    .replace(/{{ *site *}}/g, config.site)
+                                    .replace(/{{ *prefix *}}/g, config.settings.prefix)
+                                    .replace(/{{ *site *}}/g, config.settings.site)
                                     .replace(/{{ *name *}}/g, client.user.username)
-                                    .replace(/{{ *sname *}}/g, message.guild.name)}\n\n${command}${ content.params == null ? `\n${t}` : `\n\n**Parameters**\n${parameters}${t}` }`
+                                    .replace(/{{ *s(erver)?name *}}/g, message.guild.name)}\n\n${command}${ content.params == null ? `\n${t}` : `\n\n**Parameters**\n${parameters}${t}` }`
                             }
 
                             msg.embed.fields.push(temp)
@@ -185,10 +185,10 @@ exports.run = (client, message, args, adminRole) => {
                                 content.command.toLowerCase().match(new RegExp(`${args[0].toLowerCase()}`))
                             ) {
                                 var command = content.usage
-                                    .replace(/{{ *prefix *}}/g, `${config.prefix}__`).replace(/ +/, '__ ')
-                                    .replace(/{{ *site *}}/g, config.site)
+                                    .replace(/{{ *prefix *}}/g, `${config.settings.prefix}__`).replace(/ +/, '__ ')
+                                    .replace(/{{ *site *}}/g, config.settings.site)
                                     .replace(/{{ *name *}}/g, client.user.username)
-                                    .replace(/{{ *sname *}}/g, message.guild.name)
+                                    .replace(/{{ *s(erver)?name *}}/g, message.guild.name)
                                     .replace('[', '*[')
                                     .replace(']', ']*')
                                     .replace('<', '**<')
@@ -216,10 +216,10 @@ exports.run = (client, message, args, adminRole) => {
                                 var temp = {
                                     name: '---=={ }==---',
                                     value: `**${content.name}**\n${content.description
-                                        .replace(/{{ *prefix *}}/g, config.prefix)
-                                        .replace(/{{ *site *}}/g, config.site)
+                                        .replace(/{{ *prefix *}}/g, config.settings.prefix)
+                                        .replace(/{{ *site *}}/g, config.settings.site)
                                         .replace(/{{ *name *}}/g, client.user.username)
-                                        .replace(/{{ *sname *}}/g, message.guild.name)}\n\n${command}${ content.params == null ? `\n${t}` : `\n\n**Parameters**\n${parameters}${t}` }`
+                                        .replace(/{{ *s(erver)?name *}}/g, message.guild.name)}\n\n${command}${ content.params == null ? `\n${t}` : `\n\n**Parameters**\n${parameters}${t}` }`
                                 }
 
                                 msg.embed.fields.push(temp)

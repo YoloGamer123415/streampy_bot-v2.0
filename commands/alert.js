@@ -4,14 +4,18 @@ const config = require('../config.json')
 exports.run = (client, message, args, adminRole) => {
     message.delete()
     if (message.member.roles.has(adminRole.id)) {
-        var msg = message.content.replace(`${config.prefix}alert`, '').trim()
+        var msg = message.content.replace(`${config.settings.prefix}alert`, '').trim()
+            .replace(/{{ *prefix *}}/g, config.settings.prefix)
+            .replace(/{{ *site *}}/g, config.settings.site)
+            .replace(/{{ *name *}}/g, client.user.username)
+            .replace(/{{ *s(erver)?name *}}/g, message.guild.name)
 
         if (msg == '' || msg == undefined || msg == null) return message.channel.send({
             embed: {
                 description: `Maybe you need to specify something for me to say... 🤦‍`,
                 color: 1409939,
                 footer: {
-                    text: `© Copyright Streampyhosting - ${new Date().getFullYear()}`
+                    text: `© Copyright Streampy Hosting - ${new Date().getFullYear()}`
                 }
             }
         })
@@ -23,7 +27,7 @@ exports.run = (client, message, args, adminRole) => {
                     description: `Maybe you need an announcement channel... 🤦‍`,
                     color: 1409939,
                     footer: {
-                        text: `© Copyright Streampyhosting - ${new Date().getFullYear()}`
+                        text: `© Copyright Streampy Hosting - ${new Date().getFullYear()}`
                     }
                 }
             })

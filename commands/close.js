@@ -9,7 +9,7 @@ exports.run = (client, message, args, adminRole) => {
                 "description": `Are you sure you want to close **${message.channel.name}**?\n\n\`\`\`Answer with ✅ or ❎\`\`\``,
                 "color": 1409939,
                 "footer": {
-                    "text": `© Copyright Streampyhosting - ${new Date().getFullYear()}`
+                    "text": `© Copyright Streampy Hosting - ${new Date().getFullYear()}`
                 }
             }
         }).then(msg => {
@@ -52,7 +52,7 @@ exports.run = (client, message, args, adminRole) => {
                         "description": `Too slow 😝`,
                         "color": 1409939,
                         "footer": {
-                            "text": `© Copyright Streampyhosting - ${new Date().getFullYear()}`
+                            "text": `© Copyright Streampy Hosting - ${new Date().getFullYear()}`
                         }
                     }
                 }).then(setTimeout(() => msg.delete(), 400))
