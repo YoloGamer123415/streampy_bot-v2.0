@@ -40,15 +40,16 @@ exports.run = (client, message, args, adminRole) => {
 
                     if (!content.isAdmin) {
                         var command = content.usage
-                            .replace(/{{ *prefix *}}/g, `${config.settings.prefix}__`)
-                            .replace(/ +/, '__ ')
+                            .replace(/{{ *prefix *}}/g, `${config.settings.prefix}__`).replace(/ +/, '__ ')
                             .replace(/{{ *site *}}/g, config.settings.site)
                             .replace(/{{ *name *}}/g, client.user.username)
                             .replace(/{{ *s(erver)?name *}}/g, message.guild.name)
-                            .replace('[', '*[')
-                            .replace(']', ']*')
-                            .replace('<', '**<')
-                            .replace('>', '>**')
+                            .replace(/{{ *maxwarns *}}/g, config.settings.max_warns)
+                            .replace(/{{ *timemuted *}}/g, config.settings.time_muted)
+                            .replace(/\[/g, '*[')
+                            .replace(/\]/g, ']*')
+                            .replace(/\</g, '**<')
+                            .replace(/\>/g, '>**')
 
                         command = command.includes(' ')
                             ? command
@@ -60,7 +61,9 @@ exports.run = (client, message, args, adminRole) => {
                                 .replace(/{{ *prefix *}}/g, config.settings.prefix)
                                 .replace(/{{ *site *}}/g, config.settings.site)
                                 .replace(/{{ *name *}}/g, client.user.username)
-                                .replace(/{{ *s(erver)?name *}}/g, message.guild.name)}\n\n${command}\n${t}`
+                                .replace(/{{ *s(erver)?name *}}/g, message.guild.name)
+                                .replace(/{{ *maxwarns *}}/g, config.settings.max_warns)
+                                .replace(/{{ *timemuted *}}/g, config.settings.time_muted)}\n\n${command}\n${t}`
                         }
 
                         msg.embed.fields.push(temp)
@@ -85,10 +88,12 @@ exports.run = (client, message, args, adminRole) => {
                                 .replace(/{{ *site *}}/g, config.settings.site)
                                 .replace(/{{ *name *}}/g, client.user.username)
                                 .replace(/{{ *s(erver)?name *}}/g, message.guild.name)
-                                .replace('[', '*[')
-                                .replace(']', ']*')
-                                .replace('<', '**<')
-                                .replace('>', '>**')
+                                .replace(/{{ *maxwarns *}}/g, config.settings.max_warns)
+                                .replace(/{{ *timemuted *}}/g, config.settings.time_muted)
+                                .replace(/\[/g, '*[')
+                                .replace(/\]/g, ']*')
+                                .replace(/\</g, '**<')
+                                .replace(/\>/g, '>**')
 
                             command = command.includes(' ')
                                 ? command
@@ -100,7 +105,9 @@ exports.run = (client, message, args, adminRole) => {
                                     .replace(/{{ *prefix *}}/g, config.settings.prefix)
                                     .replace(/{{ *site *}}/g, config.settings.site)
                                     .replace(/{{ *name *}}/g, client.user.username)
-                                    .replace(/{{ *s(erver)?name *}}/g, message.guild.name)}\n\n${command}\n${t}`
+                                    .replace(/{{ *s(erver)?name *}}/g, message.guild.name)
+                                    .replace(/{{ *maxwarns *}}/g, config.settings.max_warns)
+                                    .replace(/{{ *timemuted *}}/g, config.settings.time_muted)}\n\n${command}\n${t}`
                             }
 
                             msg.embed.fields.push(temp)
@@ -129,10 +136,12 @@ exports.run = (client, message, args, adminRole) => {
                                 .replace(/{{ *site *}}/g, config.settings.site)
                                 .replace(/{{ *name *}}/g, client.user.username)
                                 .replace(/{{ *s(erver)?name *}}/g, message.guild.name)
-                                .replace('[', '*[')
-                                .replace(']', ']*')
-                                .replace('<', '**<')
-                                .replace('>', '>**')
+                                .replace(/{{ *maxwarns *}}/g, config.settings.max_warns)
+                                .replace(/{{ *timemuted *}}/g, config.settings.time_muted)
+                                .replace(/\[/g, '*[')
+                                .replace(/\]/g, ']*')
+                                .replace(/\</g, '**<')
+                                .replace(/\>/g, '>**')
 
                             command = command.includes(' ')
                                 ? command
@@ -159,7 +168,9 @@ exports.run = (client, message, args, adminRole) => {
                                     .replace(/{{ *prefix *}}/g, config.settings.prefix)
                                     .replace(/{{ *site *}}/g, config.settings.site)
                                     .replace(/{{ *name *}}/g, client.user.username)
-                                    .replace(/{{ *s(erver)?name *}}/g, message.guild.name)}\n\n${command}${ content.params == null ? `\n${t}` : `\n\n**Parameters**\n${parameters}${t}` }`
+                                    .replace(/{{ *s(erver)?name *}}/g, message.guild.name)
+                                    .replace(/{{ *maxwarns *}}/g, config.settings.max_warns)
+                                    .replace(/{{ *timemuted *}}/g, config.settings.time_muted)}\n\n${command}${ content.params == null ? `\n${t}` : `\n\n**Parameters**\n${parameters}${t}` }`
                             }
 
                             msg.embed.fields.push(temp)
@@ -189,10 +200,12 @@ exports.run = (client, message, args, adminRole) => {
                                     .replace(/{{ *site *}}/g, config.settings.site)
                                     .replace(/{{ *name *}}/g, client.user.username)
                                     .replace(/{{ *s(erver)?name *}}/g, message.guild.name)
-                                    .replace('[', '*[')
-                                    .replace(']', ']*')
-                                    .replace('<', '**<')
-                                    .replace('>', '>**')
+                                    .replace(/{{ *maxwarns *}}/g, config.settings.max_warns)
+                                    .replace(/{{ *timemuted *}}/g, config.settings.time_muted)
+                                    .replace(/\[/g, '*[')
+                                    .replace(/\]/g, ']*')
+                                    .replace(/\</g, '**<')
+                                    .replace(/\>/g, '>**')
 
                                 command = command.includes(' ')
                                     ? command
@@ -219,7 +232,9 @@ exports.run = (client, message, args, adminRole) => {
                                         .replace(/{{ *prefix *}}/g, config.settings.prefix)
                                         .replace(/{{ *site *}}/g, config.settings.site)
                                         .replace(/{{ *name *}}/g, client.user.username)
-                                        .replace(/{{ *s(erver)?name *}}/g, message.guild.name)}\n\n${command}${ content.params == null ? `\n${t}` : `\n\n**Parameters**\n${parameters}${t}` }`
+                                        .replace(/{{ *s(erver)?name *}}/g, message.guild.name)
+                                        .replace(/{{ *maxwarns *}}/g, config.settings.max_warns)
+                                        .replace(/{{ *timemuted *}}/g, config.settings.time_muted)}\n\n${command}${ content.params == null ? `\n${t}` : `\n\n**Parameters**\n${parameters}${t}` }`
                                 }
 
                                 msg.embed.fields.push(temp)

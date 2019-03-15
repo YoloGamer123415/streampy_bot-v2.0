@@ -44,7 +44,7 @@ exports.help = {
     usage: '{{ prefix }}suggest <suggestion>',
     params: {
         suggestion: {
-            description: 'The name of the command to search for.',
+            description: 'The suggestion to send.',
             required: true
         }
     },

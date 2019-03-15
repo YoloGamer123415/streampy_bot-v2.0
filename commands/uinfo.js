@@ -40,7 +40,8 @@ var insults = [
 exports.run = (client, message, args, adminRole, logChannel, con) => {
     message.delete()
 
-    if (message.member.roles.has(adminRole.id)) {if (!args[0] || !args[0].match(/(<@)?[0-9]+>?/)) return message.channel.send({
+    if (message.member.roles.has(adminRole.id)) {
+        if (!args[0] || !args[0].match(/(<@)?[0-9]+>?/)) return message.channel.send({
             embed: {
                 description: `User Info usage: \`${config.settings.prefix}uinfo <user>\``,
                 color: 1409939,
@@ -65,20 +66,20 @@ exports.run = (client, message, args, adminRole, logChannel, con) => {
             }
         })
 
-        con.query(`SELECT * FROM users WHERE uid = ${message.author.id}`, (err, res) => {
-            if (err) return message.channel.send({
-                embed: {
-                    title: 'Error!',
-                    description: `Something bad happend :|\n\n\`\`\`${err}\`\`\``,
-                    color: 1409939,
-                    footer: {
-                        text: `This message will be deleted in 15 seconds.`
+        con.query(`SELECT * FROM users WHERE uid=${user.user.id}`, (err, res) => {
+            if (err) {
+                client.emit('error', err)
+                return message.channel.send({
+                    embed: {
+                        title: 'Error!',
+                        description: `Something bad happend :|\n\n\`\`\`${err}\`\`\``,
+                        color: 1409939,
+                        footer: {
+                            text: `This message will be deleted in 15 seconds.`
+                        }
                     }
-                }
-            }).then(msg => setTimeout(() => msg.delete(), 15000))
-            else {
-                console.log(res)
-
+                }).then(msg => setTimeout(() => msg.delete(), 15000))
+            } else {
                 message.channel.send({
                     "embed": {
                         "title": "User Info",
@@ -88,35 +89,47 @@ exports.run = (client, message, args, adminRole, logChannel, con) => {
                             "text": `Requested by: ${message.author.tag} - © Copyright Streampy Hosting - ${new Date().getFullYear()}`
                         },
                         "thumbnail": {
-                            "url": user.avatarURL ? user.avatarURL : 'https://cdn.discordapp.com/embed/avatars/0.png'
+                            "url": user.user.avatar ? `https://cdn.discordapp.com/avatars/${user.user.id}/${user.user.avatar}.png` : 'https://cdn.discordapp.com/embed/avatars/0.png'
                         },
                         "fields": [{
                             "name": "Username",
-                            "value": user.username
+                            "value": user.user.username
                         }, {
                             "name": "Discriminator",
-                            "value": user.discriminator
+                            "value": user.user.discriminator
                         }, {
                             "name": "Tag",
-                            "value": user.tag
+                            "value": user.user.tag
                         }, {
                             "name": "Id",
-                            "value": `${user.id}`
+                            "value": `${user.user.id}`
                         }, {
                             "name": "Is a bot",
-                            "value": user.bot
+                            "value": user.user.bot
                         }, {
                             "name": "Created at",
-                            "value": user.createdAt
+                            "value": user.user.createdAt
                         }, {
                             "name": "Times warned",
-                            "value": `5`
+                            "value": `${
+                                res[0]
+                                    ? res[0].times_warned
+                                    : `*The user has not been warned (yet).*`
+                            }`
                         }, {
                             "name": "Times muted",
-                            "value": `3`
+                            "value": `${
+                                res[0]
+                                    ? res[0].times_muted
+                                    : `*The user has not been muted (yet).*`
+                            }`
                         }, {
                             "name": "Times kicked",
-                            "value": `*The user has not been kicked (yet).*`
+                            "value": `${
+                                res[0]
+                                    ? res[0].times_kicked
+                                    : `*The user has not been kicked (yet).*`
+                            }`
                         }]
                     }
                 })

@@ -1,0 +1,3 @@
+Time: 28 02 2019 - 17:55:33.118
+
+Error: ER_WARN_DATA_OUT_OF_RANGE: Out of range value for column 'uid' at row 1

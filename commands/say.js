@@ -83,5 +83,5 @@ exports.help = {
             required: true
         }
     },
-    isAdmin: false
+    isAdmin: true
 }
